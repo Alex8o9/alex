@@ -332,3 +332,10 @@ body:active .cursor-light {
         max-width: 90%;
     }
 }
+.album-content .picture .pic {
+    gap: 0;
+}
+
+.album-content .picture .pic .description {
+    margin-bottom: 10px; 
+}

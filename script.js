@@ -7,7 +7,6 @@ nextPage.addEventListener("click", () => {
     if (currentIndex >= sections.length) {
         currentIndex = 0;
     }
-
     const nextSection = document.querySelector(sections[currentIndex]);
     if (nextSection) {
         nextSection.scrollIntoView({ behavior: 'smooth' });
@@ -18,9 +17,9 @@ let scrollTimer;
 window.addEventListener('scroll', () => {
     nextPage.style.opacity = '1';
     nextPage.style.pointerEvents = 'auto';
-
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(() => {
+        if (window.innerWidth <= 768) return;
         nextPage.style.opacity = '0';
         nextPage.style.pointerEvents = 'none';
     }, 2000);
@@ -31,19 +30,13 @@ cursor.classList.add('cursor-light');
 document.body.appendChild(cursor);
 
 window.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
 });
 
-const texts = [
-    "CUTE!",
-    "ADROABLE!",
-    "KIND!"
-];
-
+const texts = ["CUTE!", "ADORABLE!", "KIND!"];
 let speed = 100;
 const textElements = document.querySelector(".typewriter-text");
-
 let textIndex = 0;
 let characterIndex = 0;
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     scroll-behavior: smooth;
@@ -9,6 +9,9 @@
     color: white;
     background-color: black;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 body {
@@ -18,31 +21,6 @@ body {
     cursor: none;
 }
 
-/* Cursor */
-.cursor-light {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-    pointer-events: none;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.4),
-                0 0 15px 7px rgba(255, 255, 255, 0.15);
-    transform: translate(-50%, -50%);
-    transition: width 0.15s ease, height 0.15s ease, box-shadow 0.15s ease;
-    z-index: 9999;
-}
-
-body:active .cursor-light {
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6),
-                0 0 40px 20px rgba(255, 255, 255, 0.3);
-}
-
-/* Next Page Button */
 .next-page {
     height: 60px;
     width: 60px;
@@ -70,10 +48,9 @@ body:active .cursor-light {
 }
 
 .next-page i {
-    background: transparent;
+    background-color: transparent;
 }
 
-/* Nav */
 .nav {
     height: 10vh;
     width: 100%;
@@ -98,7 +75,11 @@ body:active .cursor-light {
     text-shadow: 0 0 10px #f8bbd0;
 }
 
-/* Main Section */
+.main {
+    min-height: 100vh;
+    width: 100%;
+}
+
 .main-content {
     min-height: 90vh;
     width: 100%;
@@ -111,8 +92,8 @@ body:active .cursor-light {
 
 .main-content .image {
     overflow: hidden;
-    height: 90vh;
-    max-width: 600px;
+    height: 80vh;
+    max-width: 500px;
     width: 100%;
     border-radius: 50%;
     border: 0.2px solid #f8bbd0;
@@ -123,6 +104,7 @@ body:active .cursor-light {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all 0.2s;
 }
 
 .image img:hover {
@@ -158,7 +140,6 @@ body:active .cursor-light {
     letter-spacing: 2px;
 }
 
-/* Album Section */
 .album {
     min-height: 100vh;
     width: 100%;
@@ -193,20 +174,26 @@ body:active .cursor-light {
 
 .album-content .picture .pic {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    gap: 10px;
+}
+
+.album-content .picture .pic .description,
+.album-content .picture .pic .image {
+    flex: 1 1 45%;
+    max-width: 500px;
 }
 
 .album-content .picture .pic .description {
-    flex: 1 1 300px;
-    max-width: 500px;
     font-size: 1.2rem;
     text-align: left;
 }
 
 .album-content .picture .pic h3 {
     font-size: 1.8rem;
+    font-weight: 500;
 }
 
 .album-content .picture .pic h3 .special {
@@ -215,8 +202,7 @@ body:active .cursor-light {
 }
 
 .album-content .image {
-    flex: 1 1 300px;
-    max-width: 500px;
+    max-width: 400px;
     width: 100%;
     overflow: hidden;
     border-radius: 10%;
@@ -230,7 +216,6 @@ body:active .cursor-light {
     object-fit: cover;
 }
 
-/* Confession Section */
 .confession {
     min-height: 100vh;
     width: 100%;
@@ -242,6 +227,11 @@ body:active .cursor-light {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+}
+
+.confession-content .header {
+    margin-bottom: 20px;
 }
 
 .confession-content .header h3 {
@@ -259,6 +249,7 @@ body:active .cursor-light {
     background-color: #f8bbd0;
     padding: 50px;
     color: black;
+    margin-bottom: 20px;
     border-radius: 40px;
     box-shadow: 0 0 50px #f8bbd0;
     text-align: left;
@@ -267,8 +258,12 @@ body:active .cursor-light {
     overflow-y: auto;
 }
 
+a {
+    background-color: transparent;
+}
+
 .confession-content .letter a {
-    background: transparent;
+    background-color: transparent;
     text-decoration: none;
 }
 
@@ -278,7 +273,7 @@ body:active .cursor-light {
     align-items: center;
     width: 3rem;
     height: 3rem;
-    background: transparent;
+    background-color: transparent;
     border: 0.2rem solid black;
     border-radius: 50%;
     color: black;
@@ -294,48 +289,106 @@ body:active .cursor-light {
     filter: drop-shadow(0 0 10px black);
 }
 
-/* Responsive */
+.cursor-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.4),
+                0 0 15px 7px rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%);
+    transition: width 0.15s ease, height 0.15s ease, box-shadow 0.15s ease;
+    z-index: 9999;
+}
+
+body:active .cursor-light {
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.6),
+                0 0 40px 20px rgba(255, 255, 255, 0.3);
+}
+
 @media (max-width: 768px) {
     .nav-content {
         font-size: 1.5rem;
     }
+
     .nav-content .special {
         font-size: 1.7rem;
         margin-left: 10px;
     }
+
     .main-content {
         flex-direction: column;
         padding: 20px 10px;
     }
+
     .main-content .image {
-        height: 300px;
-        width: 300px;
+        height: 220px;
+        width: 220px;
+        border-radius: 50%;
     }
+
     .main-content .heading {
         width: 95%;
         text-align: center;
     }
-    .next-page {
-        height: 60px;
-        width: 60px;
+
+    .main-content .heading h3 {
         font-size: 2rem;
-        bottom: 20px;
-        right: 20px;
-        opacity: 1 !important;
-        pointer-events: auto !important;
     }
+
+    .main-content .heading p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .album-content .header {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
     .album-content .picture .pic {
         flex-direction: column;
         text-align: center;
     }
-    .album-content .image {
-        max-width: 90%;
-    }
-}
-.album-content .picture .pic {
-    gap: 0;
-}
 
-.album-content .picture .pic .description {
-    margin-bottom: 10px; 
+    .album-content .picture .pic h3 {
+        font-size: 1.5rem;
+    }
+
+    .album-content .picture .pic p {
+        font-size: 1rem;
+    }
+
+    .album-content .image {
+        max-width: 300px;
+        width: 90%;
+        border-radius: 10%;
+    }
+
+    .confession-content .header h3 {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    .confession-content .letter {
+        width: 95%;
+        padding: 30px 20px;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .next-page {
+        height: 50px;
+        width: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+    }
 }

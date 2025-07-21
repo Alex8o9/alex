@@ -85,9 +85,10 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center; /* changed */
     flex-wrap: wrap;
     padding: 40px 20px;
+    gap: 10px; /* add small gap between flex children */
 }
 
 .main-content .image {

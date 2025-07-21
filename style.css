@@ -175,13 +175,18 @@ body {
 .album-content .picture .pic {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 10px;
+}
+
+.album-content .picture .pic .description,
+.album-content .picture .pic .image {
+    flex: 1 1 45%;
+    max-width: 500px;
 }
 
 .album-content .picture .pic .description {
-    flex: 1 1 300px;
     font-size: 1.2rem;
     text-align: left;
 }
@@ -197,7 +202,6 @@ body {
 }
 
 .album-content .image {
-    flex: 1 1 300px;
     max-width: 400px;
     width: 100%;
     overflow: hidden;
@@ -387,5 +391,4 @@ body:active .cursor-light {
         bottom: 20px;
         right: 20px;
     }
-
 }

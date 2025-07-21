@@ -385,10 +385,11 @@ body:active .cursor-light {
     }
 
     .next-page {
-        height: 50px;
-        width: 50px;
-        font-size: 1.5rem;
-        bottom: 20px;
-        right: 20px;
-    }
+    height: 50px;
+    width: 50px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+  }
+    
 }
